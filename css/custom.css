@@ -1,0 +1,12 @@
+.mynd-bg{
+    background-color: var(--nav-bg);
+    background-image: url(../images/file-20180619-126566-1jxjod2.avif);
+    color:aliceblue;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 1em;
+    
+}
+body{
+    background-color: #d0f4ff;
+}

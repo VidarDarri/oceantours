@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="is">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HTML og CSS grunnur">
+    <meta name="author" content="GJG">
+    <title>Order page</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!--link rel="stylesheet" href="css/1-base.css">
+    <link rel="stylesheet" href="css/2-grid.css">
+    <link rel="stylesheet" href="css/order.css">
+    <link rel="stylesheet" href="css/cssbase.css">
+    <link rel="stylesheet" href="css/hamburger.css">
+    <link rel="stylesheet" href="css/5-custom.css"-->
+    <link rel="stylesheet" href="css/styles.css"-->
+    <link rel="icon" type="image/svg" href="images/rwd-icon.svg">
+    <script>
+      function changeState(check1) 
+      {
+          var sel = document.getElementById("select1")
+          sel.disabled = check1.checked ? false : true;
+          if (!select1.disabled)
+          {
+              select1.focus();
+          }
+      }
+    </script>
+</head>
+<style>
+  a:visited {color:white;} /* visited link is black (reverse the color back to black)*/
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<section class="top-nav">
+  <div>
+      <img max width="225px" src="images/Logo_OceanTours-01.png">
+  </div>
+  <input id="menu-toggle" type="checkbox" />
+  <label class="menu-button-container" for="menu-toggle">
+    <div class="menu-button"></div>
+  </label>
+  <ul class="menu">
+    <li>
+      <a href="index.html">
+        <img width="20px" src="svg/small-house.svg">
+        Home
+      </a>
+    </li>
+    <li>
+      <a href="about.html">
+        <img width="20px" src="svg/radio-circle-marked.svg">
+        About
+      </a>
+    </li>
+    <li>
+      <a href="order.html">
+        <img width="20px" src="svg/receipt.svg">
+        Order
+      </a>
+    </li>
+    <li>
+      <a href="service.html">
+        <img width="20px" src="svg/phone-call.svg">
+        Contact
+      </a>
+    </li>
+  </ul>
+</section>
+<body id="top">
+  <main>
+    <!-- Dagskrá í töflu -->
+    <section id="program">
+      <div class="schedule">
+    <section class="container col-2" id="contact">
+      <div>
+        <h1>How Our Order Site Works</h1>
+        <h2>Step 1: Browse our Trips</h2>
+        <p>Take a look at the trpis available on our site and find the one you'd like to purchase.</p>
+        <h2>Step 2: Fill out your information</h2>
+        <p>Fill out your name, address, and payment information on the checkout page.</p>
+        <h2>Step 3: Place your order</h2>
+        <p>After reviewing your information, click on the "Place Order" button to complete your purchase.</p>
+        <h2>Step 4: Order confirmation</h2>
+        <p>You will receive an email confirming your order. Your order will be processed and shipped soon.</p>
+      </div>
+      <div class="tafla">
+        <form action="takk.html" method="GET"><!--"POST" er notað þegar upplýsingar eru sendar úr formi-->
+            <fieldset class="register"><!--nota klasa til að geta haft aðra forma með öðru útliti - sjá css-->
+              <legend>Order page</legend>
+              <p><!--autofocus-->
+                  Name:  
+                  <input type="text" 
+                          name="nafn" 
+                          placeholder="Full name" 
+                          required 
+                          title="Vinsamlegast skráið nafn"> <!--ATH! input hefur ekki lokunartag -->
+              </p>
+                <p>gender: 
+                  <input type="radio" name="kyn" value="Hann" id="Hann">
+                  <label for="Hann">male</label> |
+                  <input type="radio" name="kyn" value="Hún" id="Hún"> 
+                  <label for="Hún">female</label> |
+                  <input type="radio" name="kyn" value="Hán" id="Hán"> 
+                  <label for="Hán">they/them</label> 
+                </p>
+                <p>
+                    Phone number: 
+                    <input  type="text" 
+                            name="sími" 
+                            placeholder="Telephone (7 digits)"
+                            title="Vinsamlegast skráið aðeins 7 tölustafi"
+                            required
+                            pattern="\d{3}(?:[\-\s]?)\d{4}">
+                </p>    <!-- http://html5pattern.com/Phones "\d{3}(?:[\-\s]?)\d{4}" -->
+                <p>
+                  Email: 
+                  <input  type="email" 
+                          name="tölvupóstur" 
+                          placeholder="Email address" 
+                          required>
+                </p>
+                <section class="col-3">
+                  <p> 
+                    Trips open: 
+                    <select name="ferdaval">
+                      <option value="1">day cruise</option>
+                      <option value="2">Whale watching</option>
+                      <option value="3">Northern lights</option>
+                      <option value="4">Island cruise</option>
+                      <option value="5">Diving</option>
+                    </select>
+                  </p>
+                  <p>
+                    amount of pasengers: <input type="number">
+                  </p>
+                  <p>
+                    Date: 
+                      <input type="date">
+                  </p>
+                </section>
+                <p>
+                    <!--https://www.w3schools.com/tags/att_textarea_rows.asp-->
+                    <textarea rows="4" name="comment" placeholder="Ábending - Comment"></textarea>
+                </p>
+                <p>
+                  <input type="checkbox" name="postlist" value="OK" id="plist"> 
+                  <label for="plist">sign me on a mail list</label> |
+                  <input type="checkbox" name="subscription" value="OK" id="sub"> 
+                  <label for="sub">Become a subscriber </label>
+                </p><p>
+                  <input type="checkbox" id="check1" name="select-x" onclick="changeState(this)">
+                  <label for="check1">Send more information</label>
+                  <select name="val" id="select1">
+                    <option value="" selected>Trip choices</option>
+                    <option value="1">day trip</option>
+                    <option value="2">2 hour trip</option>
+                    <option value="3">3 hour trip</option>
+                    <option value="4">4 hour trip</option>
+                    <option value="5">night trip</option>
+                  </select>
+                </p>
+                <p class="center"><input type="submit" name="submit" value="order"></p>
+            </fieldset>
+        </form>
+      </div>
+    </section>
+  </main>
+  <h2 class="midja">Chekk out our member status</h2>
+  <section class="col-2">
+    <section>
+</article>
+<!-- FIRST TAB -->
+<div class="tab">
+<input id="tab-1r" type="radio" name="tabr">
+<label for="tab-1r">1. classic</label>
+<div class="content"><p>
+  classic membership allows you to expand on all features to the normal experience</p>
+  <p>100$ per month</p>
+  <p>
+  <ul class="downlbutts">
+  <li><a href="#.doc">Word Document download</a></li></ul>
+  <a class="button" href="membership.html">see more</a>
+</p></div>
+</div>
+
+<!-- SECOND TAB -->
+<div class="tab">
+<input id="tab-2r" type="radio" name="tabr">
+<label for="tab-2r">2. Premium</label>
+<div class="content"><p>
+  premium allows cheaper trips free food on cruises and better housing on longer cruises</p>
+  <p>200$ per month</p>
+  <p>
+  <ul class="downlbutts">
+  <li><a href="#.jpg">Image File download</a></li></ul>
+  <a class="button" href="membership.html">see more</a>
+ </p></div>
+
+</div>
+
+</section>
+<section>
+<!-- THIRD TAB -->
+<div class="tab">
+  <input id="tab-3r" type="radio" name="tabr">
+  <label for="tab-3r">3. Deluxe</label>
+  <div class="content"><p>
+    deluxe allows all that premium gives plus your name is put on the official website and you can go to the deluxe resturant on the boat</p>
+    <p>300$per month</p>
+    <p>
+    <ul class="downlbutts">
+    <li><a href="#.mp3">Audio File download</a></li></ul>
+    <a class="button" href="membership.html">see more</a>
+  </p></div>
+  </div>
+  <!-- fourth tab-->
+  <div class="tab">
+    <input id="tab-4r" type="radio" name="tabr">
+    <label for="tab-4r">4. Vip</label>
+    <div class="content"><p>
+      vip gives out evry feature allowed so frre trips food and housing plus acces to the vip room</p>
+      <p>500$ per month</p>
+      <p>
+      <ul class="downlbutts">
+      <li><a href="#.mp4">Video File download</a></li>
+      <a class="button" href="membership.html">see more</a>
+    </ul> </p></div>
+    </div>
+</section>
+</section>
+  <div class="footerbg">
+  <footer class="col-3">
+    <nav>
+      <ul class="socialbutts">
+        <li><a href="#"><span class="icon-link"></span> Eveniet ducimus pariatur</a></li>
+        <li><a href="#"><span class="icon-link"></span> Vitae animi, sed provident</a></li>
+        <li><a href="#"><span class="icon-link"></span> Lorem ipsum dolor sit amet</a></li>
+        <li><a href="#"><span class="icon-link"></span> Provident sit aliquid</a></li>
+      </ul>
+    </nav>
+    <nav>
+      <ul class="socialbutts">
+        <li><a href="#"><span class="icon-facebook2"></span> Ocean Tours on Facebook</a></li>
+        <li><a href="#"><span class="icon-twitter"></span> Ocean Tours on Twitter</a></li>
+        <li><a href="#"><span class="icon-github"></span> Ocean Tours on Github</a></li>
+        <li><a href="#"><span class="icon-soundcloud2"></span> Ocean Tours on Soundcloud</a></li>
+      </ul>
+    </nav>
+    <div>
+      <dl>              <!--Description list -->
+        <dt>Nafn</dt>
+          <dd>Viðar Darri Egilsson</dd>
+        <dt>Tölvupóstur</dt>
+          <dd>vidareg22@tskoli.is</dd>
+        <dt>Vefhönnun</dt>
+          <dd>VEFÞ2VHB5AU, tölvubraut Tækniskólans</dd>
+      </dl>
+    </div>
+  </footer>
+  <p class="center footerbg">&copy 2023 VDE</p>
+  </div>
+</body>
+</html>
